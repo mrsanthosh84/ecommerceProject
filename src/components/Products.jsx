@@ -19,6 +19,7 @@ const Products = () => {
   const addProduct = (product) => {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
+        event:"add_to_cart",
         addCartProducts: product
     });
     dispatch(addCart(product));
