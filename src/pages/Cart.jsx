@@ -31,6 +31,7 @@ const Cart = () => {
   };
 
   const ShowCart = () => {
+   
     let subtotal = 0;
     let shipping = 30.0;
     let totalItems = 0;
@@ -158,7 +159,8 @@ const Cart = () => {
           </div>
         </section>
       </>
-    );
+    )
+    
   };
 
   return (

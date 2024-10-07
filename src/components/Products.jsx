@@ -17,6 +17,10 @@ const Products = () => {
   const dispatch = useDispatch();
 
   const addProduct = (product) => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+        addCartProducts: product
+    });
     dispatch(addCart(product));
   };
 
@@ -37,10 +41,6 @@ const Products = () => {
     };
 
     getProducts();
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-        productsResponse: data
-    });
   }, []);
 
   useEffect(() => {
