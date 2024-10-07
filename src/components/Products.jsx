@@ -24,19 +24,31 @@ const Products = () => {
     const getProducts = async () => {
       setLoading(true);
       const response = await fetch("https://fakestoreapi.com/products/");
+      
       if (componentMounted) {
         setData(await response.clone().json());
         setFilter(await response.json());
         setLoading(false);
       }
-
+     
       return () => {
         componentMounted = false;
       };
     };
 
     getProducts();
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+        productsResponse: data
+    });
   }, []);
+
+  useEffect(() => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+        productsResponse: data
+    });
+  }, [data]);
 
   const Loading = () => {
     return (

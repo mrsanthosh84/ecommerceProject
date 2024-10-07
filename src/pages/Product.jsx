@@ -32,6 +32,12 @@ const Product = () => {
         `https://fakestoreapi.com/products/category/${data.category}`
       );
       const data2 = await response2.json();
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+          pageCategory: "products",
+          product_id: id,
+          product_category: data.category
+      });
       setSimilarProducts(data2);
       setLoading2(false);
     };
